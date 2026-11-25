@@ -1,22 +1,22 @@
-# ⚖️ Gender Classification using Height and Weight
+# 🎗️ Breast Cancer Prediction using Machine Learning
 
-This project demonstrates how to build a machine learning model that predicts a person's **gender** based on their **height** and **weight** measurements. The notebook follows a complete machine learning workflow, including exploratory data analysis (EDA), data preprocessing, feature scaling, handling class imbalance with **SMOTE**, and training a **Logistic Regression** classifier.
+This project demonstrates how to build a machine learning model to predict whether a breast tumor is **benign** or **malignant** using the **Breast Cancer Wisconsin Dataset**. The notebook follows a complete machine learning workflow, including data exploration, preprocessing, handling class imbalance with **SMOTE**, feature scaling, model training, and evaluation.
 
-This project is designed as a beginner-friendly introduction to binary classification using Scikit-learn.
+The project serves as an introduction to applying machine learning techniques to healthcare datasets for binary classification tasks.
 
 ---
 
 ## 📌 Features
 
 - Exploratory Data Analysis (EDA)
-- Correlation analysis
-- Data visualization with Seaborn
+- Data cleaning and preprocessing
+- Missing value handling
 - Label encoding for categorical data
 - Feature scaling using `StandardScaler`
 - Train/Test split
-- Class imbalance handling with `SMOTE`
+- Class imbalance handling using SMOTE
 - Logistic Regression classifier
-- Model evaluation using multiple metrics
+- Model evaluation using classification metrics
 
 ---
 
@@ -25,10 +25,11 @@ This project is designed as a beginner-friendly introduction to binary classific
 - Python
 - Pandas
 - NumPy
-- Matplotlib
 - Seaborn
+- Matplotlib
 - Scikit-learn
-- imbalanced-learn `(SMOTE)`
+- imbalanced-learn (SMOTE)
+- KaggleHub
 - Jupyter Notebook
 
 ---
@@ -42,38 +43,38 @@ matplotlib
 seaborn
 scikit-learn
 imbalanced-learn
+kagglehub
 ```
 
----
 
 ## 📊 Dataset
 
-The project uses a **Height and Weight** dataset containing physical measurements for individuals.
+The project uses the **Breast Cancer Wisconsin Dataset**, downloaded through **KaggleHub**.
 
-### Features
+The dataset contains diagnostic measurements computed from digitized images of breast masses.
 
-| Feature | Description |
-|----------|-------------|
-| Height | Height of the individual |
-| Weight | Weight of the individual |
-| Gender | Target variable (Male or Female) |
+### Target Variable
 
-The target variable is converted into numerical values using **LabelEncoder** before training the model.
+- **Diagnosis**
+  - Benign (B)
+  - Malignant (M)
+
+Before training, the diagnosis labels are converted into numerical values using **LabelEncoder**.
 
 ---
 
 ## 🔍 Exploratory Data Analysis
 
-The notebook includes several exploratory analysis steps, such as:
+The notebook includes:
 
 - Dataset inspection
-- Summary statistics
+- Missing value analysis
+- Class distribution analysis
+- Data type inspection
+- Statistical summaries
 - Correlation analysis
-- Scatter plots
-- Distribution visualization
-- Feature relationship analysis
 
-These visualizations help identify patterns between height, weight, and gender.
+These steps help understand the characteristics of the dataset before model training.
 
 ---
 
@@ -81,15 +82,15 @@ These visualizations help identify patterns between height, weight, and gender.
 
 The notebook performs the following steps:
 
-- Load the dataset
-- Explore and visualize the data
-- Encode categorical labels
-- Split the dataset into training and testing sets
-- Balance the training data using **SMOTE**
-- Standardize numerical features using `StandardScaler`
-- Train a **Logistic Regression** model
-- Generate predictions
-- Evaluate model performance
+1. Load the Breast Cancer Wisconsin Dataset
+2. Remove unnecessary or missing-value columns
+3. Encode the diagnosis labels
+4. Split the dataset into training and testing sets
+5. Balance the training data using **SMOTE**
+6. Standardize the features using `StandardScaler`
+7. Train a **Logistic Regression** classifier
+8. Generate predictions
+9. Evaluate model performance
 
 ---
 
@@ -100,11 +101,11 @@ The trained model is evaluated using:
 - Accuracy Score
 - Confusion Matrix
 - Classification Report
-- Mean Squared Error (MSE)
-- Mean Absolute Error (MAE)
-- R² Score
+- Precision
+- Recall
+- F1-Score
 
-These metrics provide an overview of the classifier's predictive performance.
+These metrics provide insight into the classifier's ability to distinguish between benign and malignant tumors.
 
 ---
 
@@ -119,7 +120,7 @@ pip install -r requirements.txt
 Or install them manually:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn
+pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn kagglehub
 ```
 
 ---
@@ -134,8 +135,8 @@ jupyter notebook
 
 Open:
 
-```
-main.ipynb
+```text
+breast_cancer_prediction.ipynb
 ```
 
 Run the notebook cells sequentially to reproduce the complete machine learning workflow.
@@ -146,19 +147,22 @@ Run the notebook cells sequentially to reproduce the complete machine learning w
 
 This project demonstrates how to:
 
-- Perform exploratory data analysis
+- Work with healthcare datasets
+- Clean and preprocess data
+- Handle missing values
 - Encode categorical variables
 - Handle imbalanced datasets using SMOTE
 - Standardize numerical features
 - Train a Logistic Regression classifier
-- Evaluate binary classification models using standard metrics
+- Evaluate binary classification models
 
 ---
 
 ## 🔮 Future Improvements
 
-- Compare additional classification models (Random Forest, SVM, XGBoost)
+- Compare additional classification algorithms (Random Forest, XGBoost, SVM)
 - Perform hyperparameter tuning
 - Apply cross-validation
-- Visualize decision boundaries
-- Deploy the model as a Streamlit web application
+- Visualize feature importance
+- Plot ROC and Precision-Recall curves
+- Deploy the model with Streamlit or Flask
